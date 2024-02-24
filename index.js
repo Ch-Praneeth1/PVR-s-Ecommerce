@@ -87,7 +87,7 @@ server.use('/auth', authRouter.router);
 server.use('/cart',isAuth(), cartRouter.router);
 server.use('/orders',isAuth(), ordersRouter.router);
 
-// Passport Strategies
+// Passport Strategies ->
 passport.use('local', new LocalStrategy({usernameField
 :'email'}, async function(email, password, done) {
         try{
