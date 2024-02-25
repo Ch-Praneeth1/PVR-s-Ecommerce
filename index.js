@@ -87,6 +87,10 @@ server.use('/auth', authRouter.router);
 server.use('/cart',isAuth(), cartRouter.router);
 server.use('/orders',isAuth(), ordersRouter.router);
 
+// react routes will work in case of other routes dosent match 
+server.get('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')));
+
+
 // Passport Strategies ->
 passport.use('local', new LocalStrategy({usernameField
 :'email'}, async function(email, password, done) {
